@@ -1,296 +1,1369 @@
-<!DOCTYPE html>
-<html lang="en-US" dir="ltr">
+<!doctype html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DecodeAditya — Portfolio</title>
 
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Devicon CDN for skill logos -->
+  <!-- e.g. https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg -->
 
-  <!-- ===============================================-->
-  <!--    Document Title-->
-  <!-- ===============================================-->
-  <title>Devcost Tech - Building the future through curiosity </title>
+  <style>
+    :root {
+      /* Usman-style emerald/cyan theme (your exact palette) */
+      --bg: #0a0f0a;
+      --card: #111a11;
+      --muted: #a8b5a8;
+      --accent: #00ff88;
+      --accent-2: #00e0ff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --white-95: rgba(255, 255, 255, 0.95);
 
+      --ring: rgba(0, 255, 136, 0.2);
+      --ring-strong: rgba(0, 255, 136, 0.35);
+    }
 
-  <!-- ===============================================-->
-  <!--    Favicons-->
-  <!-- ===============================================-->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-  <link rel="manifest" href="assets/img/favicons/manifest.json">
-  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
-  <meta name="theme-color" content="#ffffff">
+    * {
+      box-sizing: border-box
+    }
 
+    html,
+    body {
+      height: 100%;
+    }
 
-  <!-- ===============================================-->
-  <!--    Stylesheets-->
-  <!-- ===============================================-->
-  <link href="assets/css/theme.css" rel="stylesheet" />
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--white-95);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.55;
+      scroll-behavior: smooth;
+    }
 
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    /* NAV */
+    header.nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      transition: background .28s, box-shadow .28s;
+      padding: 14px 0
+    }
+
+    header.nav.bg {
+      background: linear-gradient(180deg, rgba(5, 12, 5, 0.65), rgba(5, 12, 5, 0.45));
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--accent)
+    }
+
+    nav.links {
+      display: flex;
+      gap: 16px;
+      align-items: center
+    }
+
+    nav.links a {
+      font-size: 14px;
+      color: var(--muted);
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: color .18s, background .18s
+    }
+
+    nav.links a:hover {
+      color: var(--white-95);
+      background: rgba(255, 255, 255, 0.03)
+    }
+
+    .cta {
+      background: var(--accent);
+      color: #000;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 0 0 0 var(--ring);
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 8px var(--ring)
+    }
+
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      width: 38px;
+      height: 34px;
+      position: relative
+    }
+
+    .hamburger span {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      height: 2px;
+      background: var(--white-95);
+      border-radius: 2px;
+      transition: transform .2s, opacity .2s
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 9px
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 16px
+    }
+
+    .hamburger span:nth-child(3) {
+      top: 23px
+    }
+
+    .mobile-menu {
+      display: none;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      padding: 10px 20px
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 10px 0;
+      color: var(--muted)
+    }
+
+    .mobile-menu.show {
+      display: block
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 100px;
+      align-items: center
+    }
+
+    .hero-media img {
+      border-radius: 30%;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.12)
+    }
+
+    .hero-content small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      letter-spacing: .11em;
+      text-transform: uppercase
+    }
+
+    .hero-content h1 {
+      font-family: Poppins, Inter;
+      font-size: 52px;
+      line-height: 1.06;
+      margin: 6px 0 10px;
+      font-weight: 700
+    }
+
+    .wave {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: wave 2.2s infinite
+    }
+
+    @keyframes wave {
+      0% {
+        transform: rotate(0)
+      }
+
+      10% {
+        transform: rotate(14deg)
+      }
+
+      20% {
+        transform: rotate(-8deg)
+      }
+
+      30% {
+        transform: rotate(14deg)
+      }
+
+      40% {
+        transform: rotate(-4deg)
+      }
+
+      50% {
+        transform: rotate(10deg)
+      }
+
+      60%,
+      100% {
+        transform: rotate(0)
+      }
+    }
+
+    .lead {
+      min-height: 28px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 12px
+    }
+
+    .intro {
+      color: var(--muted)
+    }
+
+    .link-accent {
+      color: var(--accent-2);
+      text-decoration: none
+    }
+
+    .link-accent:hover {
+      text-decoration: underline
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      transition: transform .22s, box-shadow .2s;
+      box-shadow: 0 0 0 0 var(--ring)
+    }
+
+    .btn.alt {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--white-95)
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 8px var(--ring)
+    }
+
+    .hero-chips {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .chip {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* decorative blobs + particles */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .25;
+      mix-blend-mode: screen;
+      animation: floaty 7s ease-in-out infinite
+    }
+
+    .blob.b1 {
+      width: 560px;
+      height: 560px;
+      left: -180px;
+      top: -160px;
+      background: radial-gradient(circle at 20% 20%, var(--accent), transparent 35%)
+    }
+
+    .blob.b2 {
+      width: 420px;
+      height: 420px;
+      right: -80px;
+      bottom: -90px;
+      background: radial-gradient(circle at 80% 80%, var(--accent-2), transparent 35%)
+    }
+
+    @keyframes floaty {
+      0% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-18px)
+      }
+
+      100% {
+        transform: translateY(0)
+      }
+    }
+
+    #particle-canvas {
+      position: absolute;
+      inset: 0;
+      opacity: .25;
+      pointer-events: none;
+      z-index: -1
+    }
+
+    /* sections */
+    section {
+      padding: 70px 10px
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 26px
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      margin: 0;
+      color: var(--accent)
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 8px
+    }
+
+    /* reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 700ms cubic-bezier(.16, .86, .44, 1), transform 700ms cubic-bezier(.16, .86, .44, 1)
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* cards + grids */
+    .card {
+      background: var(--glass);
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 255, 136, 0.05);
+      transition: box-shadow .3s, transform .3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 40px rgba(0, 255, 136, 0.15);
+      transform: translateY(-4px)
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 6px 0;
+      color: var(--muted)
+    }
+
+    .checklist i {
+      color: var(--accent)
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03)
+    }
+
+    .pill.green {
+      background: rgba(0, 255, 136, 0.14);
+      border-color: rgba(0, 255, 136, 0.25)
+    }
+
+    .pill.cyan {
+      background: rgba(0, 224, 255, 0.10);
+      border-color: rgba(0, 224, 255, 0.22)
+    }
+
+    .pill.gray {
+      background: rgba(255, 255, 255, 0.06)
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .skills-grid h4 {
+      margin: 10px 0 0;
+      text-align: center
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      border-radius: 14px;
+      padding: 18px
+    }
+
+    .skill-card img {
+      width: 48px;
+      height: 48px
+    }
+
+    .project {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      transition: transform 300ms, box-shadow 300ms
+    }
+
+    .project img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 450ms ease
+    }
+
+    .project .body {
+      padding: 12px
+    }
+
+    .project h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: var(--accent)
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 255, 136, 0.1)
+    }
+
+    .project:hover img {
+      transform: scale(1.06)
+    }
+
+    .stack {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .stack span {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted)
+    }
+
+    /* Corner ribbon (category) */
+    .ribbon {
+      position: absolute;
+      top: 12px;
+      left: -44px;
+      padding: 8px 60px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #00160c;
+      font-weight: 700;
+      letter-spacing: .04em;
+      font-size: 12px;
+      transform: rotate(-30deg);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      text-transform: uppercase;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px
+    }
+
+    .contact-item {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 0 0 var(--ring)
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 8px var(--ring)
+    }
+
+    .contact-item i {
+      color: var(--accent)
+    }
+
+    footer {
+      padding: 36px 0;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.04)
+    }
+
+    footer .ps {
+      margin-top: 6px
+    }
+
+    .accent {
+      color: var(--accent)
+    }
+
+    /* Responsive */
+    @media (max-width:1024px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width:860px) {
+      nav.links {
+        display: none
+      }
+
+      .hamburger {
+        display: block
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-content h1 {
+        font-size: 44px
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(1, 1fr)
+      }
+    }
+
+    @media (max-width:560px) {
+      .hero-content h1 {
+        font-size: 36px
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(1, 1fr)
+      }
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      transition: transform 300ms, box-shadow 300ms;
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .flag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-bottom-right-radius: 8px;
+      transition: opacity .3s;
+    }
+
+    .project:hover .flag {
+      opacity: 0;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 8px;
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .project-buttons a {
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+    }
+
+    .project:hover .project-buttons {
+      opacity: 1;
+    }
+
+    .project .body {
+      padding: 12px;
+    }
+
+    .project h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Always show buttons on mobile */
+    @media (max-width:860px) {
+      .project-buttons {
+        opacity: 1;
+        position: static;
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width:1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:560px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-  <!-- ===============================================-->
-  <!--    Main Content-->
-  <!-- ===============================================-->
-  <main class="main" id="top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container-fluid"><a class="navbar-brand" href="#"><img src="assets/img/icons/logo.png" alt=""
-            width="169" /></a>
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-lg-4 ms-xl-7 border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
-            <li class="nav-item"><a class="nav-link fw-medium active" aria-current="page" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link fw-medium" href="#what-we-do">What we Do</a></li>
-            <li class="nav-item"><a class="nav-link fw-medium" href="#inspiration">Inspiration </a></li>
-            <li class="nav-item"><a class="nav-link fw-medium" href="#portfolio">Projects</a></li>
+  <!-- NAV -->
+  <header id="site-nav" class="nav">
+    <div class="container nav-inner">
+      <div class="logo">DecodeAditya</div>
+      <nav class="links" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#chess">Chess</a>
+        <a href="#books">Books</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#chess">Chess</a>
+      <a href="#books">Books</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero">
+      <canvas id="particle-canvas"></canvas>
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+
+      <div class="hero-inner container hero-grid">
+        <div class="hero-media reveal">
+          <img src="https://cdn3d.iconscout.com/3d/premium/thumb/programmer-14621847-11757512.png"
+            alt="Developer at desk">
+        </div>
+        <div class="hero-content reveal">
+          <small>hello, i am</small>
+          <h1>K. Aditya</h1>
+          <p class="lead">I am a tech enthusiast who loves coding and building innovative Projects.</p>
+
+          <div class="btn-row">
+            <a class="btn" href="#projects"><i data-lucide="folder"></i> Projects</a>
+            <a class="btn alt" href="#contact"><i data-lucide="mail"></i> Contact</a>
+          </div>
+
+          <div class="hero-chips">
+            <span class="chip"><i data-lucide="zap"></i>Spark</span>
+            <span class="chip"><i data-lucide="sparkles"></i> Tech </span>
+            <span class="chip"><i data-lucide="accessibility"></i> Impact </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <p class="muted">Who I am, what I build and what I love.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <h3>Who am I?</h3>
+            <p class="muted">I’m Aditya — I felt a spark writing my first line of code. I like to solve real-world
+              problems with technology, always learning new tools Whether a New Programming Language, AI or Robotics
+              when a challenge calls for it — not for a job or portfolio, because I believe no problem is too big with
+              the right tech.</p>
+            <div class="pill-row">
+              <span class="pill green"><i data-lucide="cpu"></i> Problem Solving</span>
+              <span class="pill cyan"><i data-lucide="layers"></i> Exploration</span>
+              <span class="pill gray"><i data-lucide="sparkles"></i> Tech for Good</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Little More!</h3>
+            <ul class="checklist">
+              <li><i data-lucide="check-circle"></i> From India </li>
+              <li><i data-lucide="check-circle"></i> Nature and books are my escape</li>
+              <li><i data-lucide="check-circle"></i> I am still trying to find my path</li>
+              <li><i data-lucide="check-circle"></i> Eager to Play Chess with you</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS (with logos) -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p class="muted">Tools & technologies I use</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+            <h4>HTML5</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+            <h4>CSS3</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript">
+            <h4>JavaScript</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+            <h4>React JS</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native">
+            <h4>React Native</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
+            <h4>Flutter</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            <h4>Python</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+            <h4>Django</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kalilinux/kalilinux-original.svg"
+              alt="Kali Linux">
+            <h4>Kali Linux</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+            <h4>Node.js</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecolab/googlecolab-plain.svg"
+              alt="Google Colab">
+            <h4>Google Colab</h4>
+          </div>
+          <div class="skill-card reveal">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+            <h4>Firebase</h4>
+          </div>
+        </div>
+        <p style="text-align: center;padding-top: 10px;">And <strong>MORE!</strong></p>
+      </div>
+    </section>
+
+    <!-- PROJECTS (with corner ribbons) -->
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Some of my work</p>
+        </div>
+        <div class="projects-grid">
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .project {
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      }
+
+      .project img {
+        width: 100%;
+        height: max-content;
+        object-fit: cover;
+      }
+
+      .flag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--accent);
+        color: #000;
+        font-weight: 700;
+        padding: 6px 12px;
+        font-size: 12px;
+        border-bottom-right-radius: 8px;
+        transition: opacity .3s;
+        z-index: 2;
+      }
+
+      .project:hover .flag {
+        opacity: 0;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 8px 12px;
+        padding-top: 20px;
+      }
+
+      .chips span {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--accent);
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+      }
+
+      .hover-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(6px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity .3s;
+      }
+
+      .project:hover .hover-overlay {
+        opacity: 1;
+      }
+
+      .project-buttons {
+        position: relative;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .project-buttons a {
+        padding: 8px 14px;
+        border-radius: 20px;
+        font-size: 14px;
+        background: var(--accent);
+        color: #000;
+        font-weight: 700;
+      }
+
+      .mobile-buttons {
+        display: none;
+        padding-top: 12px;
+      }
+
+      .mobile-buttons a {
+        display: inline-block;
+        padding: 10px;
+        margin-right: 8px;
+        border-radius: 30px;
+        background: var(--accent);
+        color: #000;
+        font-weight: 700;
+        font-size: 14px;
+        width: 48%;
+        text-align: center;
+      }
+
+      /* Mobile adjustments */
+      @media (max-width:860px) {
+        .hover-overlay {
+          display: none;
+        }
+
+        .mobile-buttons {
+          display: flex;
+          gap: 4%;
+          justify-content: center;
+        }
+
+        .flag {
+          opacity: 1 !important;
+        }
+      }
+
+      @media (max-width:1024px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width:560px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+
+    <!-- CHESS -->
+    <section id="chess">
+      <div class="container">
+        <div class="section-title">
+          <h2>Chess</h2>
+          <p class="muted">I like chess.</p>
+        </div>
+        <div class="card reveal" style="max-width:720px;margin:0 auto;text-align:center">
+          <p class="muted" style="margin:0.5rem 0 0.2rem"><i data-lucide="chess-king"></i> Always up for a casual
+            rapid/blitz game.</p>
+          <p style="margin-top:8px"><a class="pill green" href="https://www.chess.com/member/Devcost"
+              target="_blank" rel="noreferrer"><i data-lucide="swords"></i> Challenge me on Chess.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKS -->
+    <section id="books">
+      <div class="container">
+        <div class="section-title">
+          <h2>Favorite Books</h2>
+          <p class="muted">Just titles with links — keeping it simple.</p>
+        </div>
+        <div class="card reveal" style="max-width:720px;margin:0 auto">
+          <ul class="checklist" style="margin:0">
+            <li><i data-lucide="book-open"></i> <a class="link-accent" href="https://www.google.com/search?q=Homo+Dues"
+                target="_blank" rel="noreferrer">Homo Dues</a></li>
+            <li><i data-lucide="book-open"></i> <a class="link-accent"
+                href="https://www.google.com/search?q=Why+I+am+an+Atheist" target="_blank" rel="noreferrer">Why I am
+                an Atheist</a></li>
+            <li><i data-lucide="book-open"></i> <a class="link-accent"
+                href="https://www.google.com/search?q=I+came+upon+a+Lighthouse" target="_blank" rel="noreferrer">I came
+                upon a Lighthouse</a></li>
+            <li><i data-lucide="book-open"></i> <a class="link-accent"
+                href="https://www.google.com/search?q=Rich+Dad,+Poor+Dad" target="_blank" rel="noreferrer">Rich
+                Dad, Poor Dad</a></li>
+            <li><i data-lucide="book-open"></i> <a class="link-accent"
+                href="https://www.google.com/search?q=Brief+Answers+to+the+Big+Questions" target="_blank"
+                rel="noreferrer"> Brief Answers to the Big Questions</a></li>
+            <li><i data-lucide="book-open"></i> <a class="link-accent"
+                href="https://www.google.com/search?q=Deewar+Mein+ek+Khidki+rehti+thi" target="_blank"
+                rel="noreferrer"> Deewar Mein ek Khidki rehti thi</a></li>
+
+                <p>and many more...</p>
           </ul>
-          <form class="d-flex py-3 py-lg-0 "><a class="btn btn-info order-0 me-1 ml-3" href="mailto:adityaj02810@gmail.com" target="_blank" role="button">Contact Us</a>
-          </form>
         </div>
       </div>
-    </nav>
-    <section class="py-0 bg-light-gradient">
-      <div class="bg-holder"
-        style="background-image:url(assets/img/illustrations/hero-bg.png);background-position:top right;background-size:contain;">
-      </div>
-      <!--/.bg-holder-->
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 col-md-5 order-md-1 pt-8"><img class="img-fluid py-0 py-sm-6" src="assets/img/gallery/heroimage.png"
-              alt="" /></div>
-          <div class="col-md-7 col-lg-6 text-center text-md-start pt-5 pt-md-9">
-            <h1 class="display-2 fw-bold fs-4 fs-md-5 fs-xl-6">Future of Technology <br />is Here.
-            </h1>
-            <p class="mt-3 mb-4">We at Devcost, are striving to create Future ready solutions for Companies, Non profits and Society. We are Passionate to Develop a Sustainable Future for all of us. Join us to Do it Together!</p><a class="btn btn-lg btn-info rounded-pill me-2" target="_blank" href="https://api.whatsapp.com/send?phone=919044558703&text=Hi%2C%20I%20want%20to%20have%20a%20conversation%20with%20You"
-              role="button">Let's Have a Conversation!</a>
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p class="muted">Let's connect for collaboration opportunities.</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-row">
+
+            <a class="contact-item" href="https://github.com/decodeaditya" target="_blank" rel="noreferrer"><i
+                data-lucide="github"></i> GitHub</a>
+            <a class="contact-item" href="https://www.linkedin.com/in/decodeaditya" target="_blank" rel="noreferrer"><i
+                data-lucide="linkedin"></i> LinkedIn</a>
+            <a class="contact-item" href="https://instagram.com/decodeaditya" target="_blank" rel="noreferrer"><i
+                data-lucide="instagram"></i> Instagram</a>
           </div>
+
+
         </div>
       </div>
     </section>
-
-
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <section class="py-6">
-
-      <div class="container" id="what-we-do">
-        <div class="row flex-center">
-          <div class="col-auto text-center my-4">
-            <h1 class="display-3 fw-bold">What we Do</h1>
-          </div>
-        </div>
-        <div class="row" style="padding-bottom: 1rem;">
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="assets/img/gallery/web&app.avif"
-              alt="" />
-            <div class="mt-3 text-center text-md-start">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Apps & Websites</h4>
-              <p class="mb-0">From Apps to Websites, we Make best products with mordern Technologies!.</p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="assets/img/gallery/ai.avif"
-              alt="" />
-            <div class="mt-3 text-center text-md-start">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">AI and Robotics</h4>
-              <p class="mb-0">Devcost has now entered in World of AI, So that we can create best Solutions for Society.</p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="assets/img/gallery/non-profit.avif" alt="" />
-            <div class="mt-3 text-center text-md-start">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Non Profits</h4>
-              <p class="mb-0">We, always do our best to Help NGOs and work on Products that Solve Social Problems. </p>
-            </div>
-          </div>
-        </div>
-      </div><!-- end of .container-->
-
-    </section>
-    <!-- <section> close ============================-->
-    <!-- ============================================-->
-
-
-    <div class="shapeup" >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319">
-        <path fill="#7854F7" fill-opacity="1"
-          d="M0,64L120,69.3C240,75,480,85,720,85.3C960,85,1200,75,1320,69.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
-        </path>
-      </svg>
-    </div>
-    <section class="pt-4 pt-md-5 bg-info pb-3" id="inspiration">
-      </div>
-      <!--/.bg-holder-->
-
-      <div class="container">
-        <div class="row flex-center">
-          <div class="col-12 col-md-4 order-0 order-md-1"><img class="img-fluid rounded-3 shadow-lg"
-              src="assets/img/gallery/robin.jpg" alt="" /></div>
-          <div class="col-12 col-md-8 text-center text-md-start order-1 order-md-0 mt-4 md-mt-0"
-            style="max-width: 460px;">
-            <h3 class="fw-medium text-light">Meet My Inspiration</h3>
-            <p class="text-light">Robin Singh is Only Reason I’m hopeful, happy, and full of motivation. Seeing Him Working for Voiceless Animals, Always inspires me to have a Clear Purpose for Life and making it really helpful to others rather than running a rat race. It’s why I’ve deceided to help others with Whatever I am having, which may be challenging but to do something big and different, I am Ready to live it! At Last I would Like to add a line that Robin says is "अच्छा काम करने के अलावा और करने को भी क्या" .</p><p style="color: rgba(240, 255, 255, 0.849);">~ Aditya<br>Creator of Devcost</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="shapedown">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319">
-        <path fill="#7854F7" fill-opacity="1"
-          d="M0,256L120,250.7C240,245,480,235,720,234.7C960,235,1200,245,1320,250.7L1440,256L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
-        </path>
-      </svg>
-    </div>
-    <section class="pb-2 pb-md-6 bg-light-gradient" id="portfolio">
-      </div>
-      <div class="container">
-        <div class="row flex-center">
-          <div class="col-auto text-center mb-4">
-            <h1 class="display-3 fw-bold">Our Projects</h1>
-          </div>
-        </div>
-        <section class="bg-gradient py-5 mb-5" style="border-radius: 20px;background: #70c21726;">
-          <div class="bg-holder"
-          style="background-image:url(assets/img/illustrations/hero-bg.png);background-position:top right;background-size:contain;">
-        </div>
-          <div class="container">
-            <div class="row flex-center">
-              <div class="col-12 col-md-4 order-0 order-md-1"><img class="img-fluid"
-                  src="assets/img/app.png" alt="" /></div>
-              <div class="col-12 col-md-8 text-md-start order-1 order-md-0 mt-4 md-mt-0" style="max-width: 460px;">
-                <h4 class="display-6 fs-2 fs-lg-3 fw-bold">New Savarrior App</h4>
-                <p>A life-saving app for animal lovers. Savarrior lets you take quick action when an animal needs help. Report animal cruelty incidents, connect with vets and rescue organizations, and access a comprehensive vegan lifestyle library—all in one place. With Savarrior, you can make a real difference in animals' lives. Download now and join the compassionate community working to build a better world for all beings.</p><a class="btn btn-lg btn-success rounded-pill"
-                target="_blank"  href="https://savarrior.netlify.app/download-app">Learn More
-                  </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="row p-2" style="padding-bottom: 1rem;">
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="/assets/img/gallery/learnrweb.netlify.app_.png" alt="" />
-            <div class="mt-3 text-center text-md-center">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Learnr</h4>
-              <p class="mb-0">This was Single Page website created for a Codefest with HTML,CSS and Javacript.</p>
-              <a class="btn btn-lg btn-outline-dark rounded-pill mt-3" href="https://learnrweb.netlify.app/" target="_blank">Visit Now</a>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="/assets/img/gallery/savarrior.netlify.app_.png" alt="" />
-            <div class="mt-3 text-center text-md-center">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Savarrior</h4>
-              <p class="mb-0">This is Web Version of our Savarrior Project. Made with MERN Technologies</p>
-              <a class="btn btn-lg btn-outline-dark rounded-pill mt-3" target="_blank" href="https://savarrior.netlify.app/">Visit Now</a>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="/assets/img/gallery/www.saveastray.in_ (2).png" alt="" />
-            <div class="mt-3 text-center text-md-center">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Save A Stray</h4>
-              <p class="mb-0">This Website was made for Save A Stray, a NGO in India.Made with React and Firebase.</p>
-              <a class="btn btn-lg btn-outline-dark rounded-pill mt-3" href="https://www.saveastray.in/" target="_blank">Visit Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="row py-0 py-md-6">
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="assets/img/gallery/linkonchat.netlify.app_ (1).png" alt="" />
-            <div class="mt-3 text-center text-md-center">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Linkon</h4>
-              <p class="mb-0">Linkon is a Browser based Chat Application. Created with React, MongoDB and Firebase.</p>
-              <a class="btn btn-lg btn-outline-dark rounded-pill mt-3" href="https://linkonchat.netlify.app/" target="_blank">Visit Now</a>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="assets/img/gallery/qce1.blogspot.com__m=1.png" alt="" />
-            <div class="mt-3 text-center text-md-center">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Quick Crack Exam</h4>
-              <p class="mb-0">This Website was made for a Youtube channel that provides Free Educational Content.</p>
-              <a class="btn btn-lg btn-outline-dark rounded-pill mt-3" href="https://qce1.blogspot.com/" target="_blank" >Visit Now</a>
-            </div>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0"><img class="img-fluid shadow-sm" style="border-radius: 10px;"
-              src="assets/img/gallery/devcost---invoice.web.app_.png" alt="" />
-            <div class="mt-3 text-center text-md-center">
-              <h4 class="display-6 fs-2 fs-lg-3 fw-bold">Devcost Invoicer</h4>
-              <p class="mb-0">This is a Browser based Invoicer that is created with MERN and Firebase. </p>
-              <a class="btn btn-lg btn-outline-dark rounded-pill mt-3" href="https://devcost---invoice.web.app/" target="_blank">Visit Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="py-0" > 
-      <!--/.bg-holder-->
-      <div class="container-fluid px-0">
-        <div class="card py-4 border-0 rounded-0 " style="background: #0b1727ed;">
-          <div class="card-body">
-            <div class="row flex-center">
-              <div class="col-xl-9 d-flex justify-content-center mb-3 mb-xl-0">
-                <h2 class="text-light fw-bold">Technology is best when it brings people together.<br/>Lets Change the Globe Together!</h2>
-              </div>
-              <div class="col-xl-3 text-center"> <div class="col-sm-12 col-md-3 text-md-start px-md-0 pt-md-2 text-center">
-                <ul class="list-unstyled d-flex flex-center">
-                  <li class="list-inline-item mr-3"><a class="text-decoration-none" target="_blank" href="https://api.whatsapp.com/send?phone=919044558703"> <img width="50x" src="assets/img/gallery/whatsapp.png" alt=""></a></li>
-                  <li class="list-inline-item mr-3"><a class="text-decoration-none" target="_blank" href="https://www.linkedin.com/in/aditya-kumar-0a0688245/"> <img width="50x" src="assets/img/gallery/linkedin.png" alt=""></a></li>
-                </ul>
-              </div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <section class="py-2 bg-dark">
-      <div class="container">
-        <div class="row flex-center">
-
-          <div class="col-sm-12 col-md-6 px-md-0 text-md-center order-1 order-md-0">
-            <div class="text-400 text-center">
-              <p class="mb-0">Made with &nbsp;<svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7854F7" viewBox="0 0 16 16">
-                  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
-                </svg>&nbsp;by&nbsp;<a class="text-400" href="#
-                " target="_blank">Devcost Tech. </a></p>
-            </div>
-          </div>
-        </div>
-      </div><!-- end of .container-->
-    </section>
-    <!-- <section> close ============================-->
-    <!-- ============================================-->
-
-
   </main>
-  <!-- ===============================================-->
-  <!--    End of Main Content-->
-  <!-- ===============================================-->
 
 
 
+  <script>
 
-  <!-- ===============================================-->
-  <!--    JavaScripts-->
-  <!-- ===============================================-->
-  <script src="vendors/@popperjs/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
+    // Define an array of project objects
+    const projects = [
+      {
+        title: "BeatBox Music App",
+        description: "Dive into music with this sleek, dark-themed Flutter Android app, featuring playback controls, favorites, and more.",
+        image: "./images/beatbox.png", // Replace with your image URL
+        category: "Mobile App",
+        stack: ["Flutter", "Dart", "Open Source"],
+        liveUrl: "https://beatboxplayer.netlify.app/", // Replace with a live demo URL
+        githubUrl: "https://github.com/decodeaditya/BeatBox-music-player" // Replace with your GitHub repo URL
+      },
+      {
+        title: "Savarrior for Animals",
+        description: "Report animal cruelty, connect with vets and NGOs, and access a comprehensive vegan lifestyle library with Savarrior.",
+        image: "./images/savarrior.png",
+        category: "Mobile App",
+        stack: ["React Native", "MongoDB", "Firebase"],
+        liveUrl: "#",
+        githubUrl: "https://github.com/decodeaditya/Savarrior_Web_Version"
+      },
+      {
+        title: "Save A Stray (NGO)",
+        description: "Description of your third project. Highlight its key features or a specific challenge you overcame.",
+        image: "https://devcosttech.netlify.app/assets/img/gallery/www.saveastray.in_%20(2).png",
+        category: "Website",
+        stack: ["React", "Firebase", "cpanel"],
+        liveUrl: "#",
+        githubUrl: "#"
+      },
+      {
+        title: "Motion Detector",
+        description: "Description of your third project. Highlight its key features or a specific challenge you overcame.",
+        image: "https://socialify.git.ci/decodeaditya/Burgler-alarm/image?custom_language=Python&font=Raleway&language=1&logo=https%3A%2F%2Fimg.icons8.com%2Fios11%2F512%2FFFFFFF%2Fgithub.png&name=1&owner=1&pattern=Solid&theme=Dark",
+        category: "Computer Vision",
+        stack: ["Python", "CV2"],
+        liveUrl: "#",
+        githubUrl: "#"
+      },
+      {
+        title: "Linkon Chat WebApp",
+        description: "Description of your third project. Highlight its key features or a specific challenge you overcame.",
+        image: "https://devcosttech.netlify.app/assets/img/gallery/linkonchat.netlify.app_%20(1).png",
+        category: "Web App",
+        stack: ["React", "Firebase", 'Material ui'],
+        liveUrl: "#",
+        githubUrl: "#"
+      }
+      ,
+      {
+        title: "Web Invoice Generator",
+        description: "Description of your third project. Highlight its key features or a specific challenge you overcame.",
+        image: "https://socialify.git.ci/decodeaditya/Devcost_Invoice_Generator/image?custom_language=JavaScript&font=Raleway&language=1&logo=https%3A%2F%2Fimg.icons8.com%2Fios11%2F512%2FFFFFFF%2Fgithub.png&name=1&owner=1&pattern=Solid&theme=Dark",
+        category: "Web App",
+        stack: ["MERN Stack", 'Material UI'],
+        liveUrl: "#",
+        githubUrl: "#"
+      }
+      ,
+      {
+        title: "Author Landing Page",
+        description: "Description of your third project. Highlight its key features or a specific challenge you overcame.",
+        image: "./images/locaterobin.png",
+        category: "Web App",
+        stack: ["Vite", "Tailwind CSS"],
+        liveUrl: "#",
+        githubUrl: "#"
+      }
+    ];
 
+    const projectsGrid = document.querySelector('.projects-grid');
+
+    projects.forEach(project => {
+      const projectElement = document.createElement('div');
+      projectElement.classList.add('project', 'reveal');
+
+      // This is a template for the project card's HTML
+      projectElement.innerHTML = `
+        <div class="flag">${project.category}</div>
+        <img src="${project.image}" alt="${project.title}">
+        <div class="chips">
+          ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
+        </div>
+        <div class="hover-overlay">
+          <div class="project-buttons">
+            <a href="${project.liveUrl}" target="_blank">Live</a>
+            <a href="${project.githubUrl}" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="body">
+          <h4>${project.title}</h4>
+          <p>${project.description}</p>
+          <div class="mobile-buttons">
+            <a href="${project.liveUrl}" target="_blank">Live</a>
+            <a href="${project.githubUrl}" target="_blank">GitHub</a>
+          </div>
+        </div>
+    `;
+
+      projectsGrid.appendChild(projectElement);
+    });
+
+
+    // Activate Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    hamburger.addEventListener("click", () => mobileMenu.classList.toggle("show"));
+
+    // Navbar background on scroll + active link color
+    const nav = document.getElementById('site-nav');
+    function onScroll() {
+      const y = window.scrollY;
+      if (y > 24) nav.classList.add('bg'); else nav.classList.remove('bg');
+
+      const sections = ['about', 'skills', 'projects', 'chess', 'books', 'contact'];
+      const mid = window.innerHeight / 2;
+      sections.forEach(id => {
+        const sec = document.getElementById(id);
+        const a = document.querySelector('nav.links a[href="#' + id + '"]');
+        if (!sec || !a) return;
+        const rect = sec.getBoundingClientRect();
+        a.style.color = (rect.top <= mid && rect.bottom >= mid) ? 'var(--accent)' : '';
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Reveal on scroll (uses .reveal.visible)
+    (function () {
+      const reveals = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(r => io.observe(r));
+    })();
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple particle canvas (small dots)
+    (function () {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = innerWidth;
+      let h = canvas.height = innerHeight;
+      const particles = [];
+      const count = Math.max(25, Math.floor((w * h) / 90000));
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: rand(0, w),
+          y: rand(0, h),
+          r: rand(0.6, 2.2),
+          vx: rand(-0.2, 0.2),
+          vy: rand(-0.15, 0.15),
+          alpha: rand(0.06, 0.18)
+        });
+      }
+
+      function resize() {
+        w = canvas.width = innerWidth;
+        h = canvas.height = innerHeight;
+      }
+      window.addEventListener('resize', resize);
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < -20) p.x = w + 20;
+          if (p.x > w + 20) p.x = -20;
+          if (p.y < -20) p.y = h + 20;
+          if (p.y > h + 20) p.y = -20;
+          ctx.beginPath();
+          ctx.fillStyle = 'rgba(255,255,255,' + p.alpha + ')';
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+  </script>
 </body>
 
 </html>
