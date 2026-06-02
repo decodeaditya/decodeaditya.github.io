@@ -1,1394 +1,613 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-
-<title>Welcome to Aditya's Portfolio</title>
-<meta name="description"
-  content="Personal portfolio of Aditya (@decodeaditya)." />
-<meta name="keywords"
-  content="Aditya, decodeaditya, developer, portfolio, web developer, mobile developer, full-stack, React, Python, Flutter, OpenCV, projects, programming, freelance" />
-
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://decodeaditya.github.io/" />
-<meta property="og:title" content="Welcome to Aditya's Portfolio" />
-<meta property="og:description"
-  content="Personal portfolio of Aditya (@decodeaditya)." />
-<meta property="og:image" content="./images/programmer-14621847-11757512.webp"/>
-
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://decodeaditya.github.io/" />
-<meta property="twitter:title" content="Welcome to Aditya's Portfolio" />
-<meta property="twitter:description"
-  content="Personal portfolio of Aditya (@decodeaditya)." />
-<meta property="twitter:image"
-  content="https://cdn3d.iconscout.com/3d/premium/thumb/programmer-14621847-11757512.webp" />
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
-  rel="stylesheet" />
-<script src="https://unpkg.com/lucide@latest"></script>
-
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya K</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   :root {
-    /* Usman-style emerald/cyan theme (your exact palette) */
-    --bg: #0a0f0a;
-    --card: #111a11;
-    --muted: #a8b5a8;
-    --accent: #00ff88;
-    --accent-2: #00e0ff;
-    --glass: rgba(255, 255, 255, 0.03);
-    --white-95: rgba(255, 255, 255, 0.95);
-
-    --ring: rgba(0, 255, 136, 0.2);
-    --ring-strong: rgba(0, 255, 136, 0.35);
+    --bg: #0d0d0d;
+    --surface: #131313;
+    --border: #222;
+    --border-mid: #2e2e2e;
+    --text: #f0ede8;
+    --muted: #b8b4ac;
+    --dim: #888;
+    --faint: #555;
+    --very-faint: #3a3a3a;
+    --accent: #edeae4;
   }
 
-  * {
-    box-sizing: border-box
-  }
-
-  html,
-  body {
-    height: 100%;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    margin: 0;
-    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: 'Jost', sans-serif;
     background: var(--bg);
-    color: var(--white-95);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.55;
-    scroll-behavior: smooth;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none
-  }
-
-  img {
-    max-width: 100%;
-    display: block
-  }
-
-  .container {
-    max-width: 1100px;
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px
+    padding: 4rem 2.5rem 8rem;
   }
+
+  a { color: var(--text); text-decoration: none; }
+  a:hover { color: #fff; }
 
   /* NAV */
-  header.nav {
-    position: fixed;
-    inset: 0 0 auto 0;
-    z-index: 100;
-    transition: background .28s, box-shadow .28s;
-    padding: 14px 0
-  }
-
-  header.nav.bg {
-    background: linear-gradient(180deg, rgba(5, 12, 5, 0.65), rgba(5, 12, 5, 0.45));
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(6px)
-  }
-
-  .nav-inner {
+  nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 16px
+    align-items: center;
+    margin-bottom: 7rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    position: relative;
   }
-
-  .logo {
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent)
-  }
-
-  nav.links {
-    display: flex;
-    gap: 16px;
-    align-items: center
-  }
-
-  nav.links a {
+  .nav-name {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    color: var(--muted);
-    padding: 6px 8px;
-    border-radius: 8px;
-    transition: color .18s, background .18s
+    color: var(--dim);
+    letter-spacing: 0.04em;
   }
-
-  nav.links a:hover {
-    color: var(--white-95);
-    background: rgba(255, 255, 255, 0.03)
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
   }
-
-  .cta {
-    background: var(--accent);
-    color: #000;
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-weight: 700;
-    box-shadow: 0 0 0 0 var(--ring);
-    transition: transform .2s, box-shadow .2s
-  }
-
-  .cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 0 8px var(--ring)
-  }
-
-  .hamburger {
+  .nav-links a { color: var(--faint); }
+  .nav-links a:hover { color: var(--muted); }
+  
+  .menu-toggle {
     display: none;
-    background: transparent;
-    border: 0;
+    background: none;
+    border: none;
+    color: var(--dim);
+    font-size: 1.5rem;
     cursor: pointer;
-    width: 38px;
-    height: 34px;
-    position: relative
-  }
-
-  .hamburger span {
-    position: absolute;
-    left: 8px;
-    right: 8px;
-    height: 2px;
-    background: var(--white-95);
-    border-radius: 2px;
-    transition: transform .2s, opacity .2s
-  }
-
-  .hamburger span:nth-child(1) {
-    top: 9px
-  }
-
-  .hamburger span:nth-child(2) {
-    top: 16px
-  }
-
-  .hamburger span:nth-child(3) {
-    top: 23px
-  }
-
-  .mobile-menu {
-    display: none;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
-    padding: 10px 20px
-  }
-
-  .mobile-menu a {
-    display: block;
-    padding: 10px 0;
-    color: var(--muted)
-  }
-
-  .mobile-menu.show {
-    display: block
   }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: center
-  }
-
-  .hero-media img {
-    border-radius: 20%;
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.12)
-  }
-
-  .hero-content small {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--muted);
-    letter-spacing: .11em;
-    text-transform: uppercase
-  }
-
-  .hero-content h1 {
-    font-family: Poppins, Inter;
-    font-size: 52px;
-    line-height: 1.06;
-    margin: 6px 0 10px;
-    font-weight: 700
-  }
-
-  .wave {
-    display: inline-block;
-    transform-origin: 70% 70%;
-    animation: wave 2.2s infinite
-  }
-
-  @keyframes wave {
-    0% {
-      transform: rotate(0)
-    }
-
-    10% {
-      transform: rotate(14deg)
-    }
-
-    20% {
-      transform: rotate(-8deg)
-    }
-
-    30% {
-      transform: rotate(14deg)
-    }
-
-    40% {
-      transform: rotate(-4deg)
-    }
-
-    50% {
-      transform: rotate(10deg)
-    }
-
-    60%,
-    100% {
-      transform: rotate(0)
-    }
-  }
-
-  .lead {
-    min-height: 28px;
-    color: var(--muted);
-    font-size: 18px;
-    margin-bottom: 12px
-  }
-
-  .intro {
-    color: var(--muted)
-  }
-
-  .link-accent {
-    color: var(--accent-2);
-    text-decoration: none
-  }
-
-  .link-accent:hover {
-    text-decoration: underline
-  }
-
-  .btn-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 16px
-  }
-
-  .btn {
-    padding: 12px 18px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    transition: transform .22s, box-shadow .2s;
-    box-shadow: 0 0 0 0 var(--ring)
-  }
-
-  .btn.alt {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--white-95)
-  }
-
-  .btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 0 8px var(--ring)
-  }
-
-  .hero-chips {
-    margin-top: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px
-  }
-
-  .chip {
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--muted);
-    font-size: 13px
-  }
-
-  /* decorative blobs + particles */
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: .25;
-    mix-blend-mode: screen;
-    animation: floaty 7s ease-in-out infinite
-  }
-
-  .blob.b1 {
-    width: 560px;
-    height: 560px;
-    left: -180px;
-    top: -160px;
-    background: radial-gradient(circle at 20% 20%, var(--accent), transparent 35%)
-  }
-
-  .blob.b2 {
-    width: 420px;
-    height: 420px;
-    right: -80px;
-    bottom: -90px;
-    background: radial-gradient(circle at 80% 80%, var(--accent-2), transparent 35%)
-  }
-
-  @keyframes floaty {
-    0% {
-      transform: translateY(0)
-    }
-
-    50% {
-      transform: translateY(-18px)
-    }
-
-    100% {
-      transform: translateY(0)
-    }
-  }
-
-  #particle-canvas {
-    position: absolute;
-    inset: 0;
-    opacity: .25;
-    pointer-events: none;
-    z-index: -1
-  }
-
-  /* sections */
-  section {
-    padding: 70px 10px
-  }
-
-  .section-title {
-    text-align: center;
-    margin-bottom: 26px
-  }
-
-  .section-title h2 {
-    font-size: 28px;
-    margin: 0;
-    color: var(--accent)
-  }
-
-  .section-title p {
-    color: var(--muted);
-    margin-top: 8px
-  }
-
-  /* reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 700ms cubic-bezier(.16, .86, .44, 1), transform 700ms cubic-bezier(.16, .86, .44, 1)
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0)
-  }
-
-  /* cards + grids */
-  .card {
-    background: var(--glass);
-    border-radius: 14px;
-    padding: 18px;
-    border: 1px solid rgba(0, 255, 136, 0.1);
-    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.05);
-    transition: box-shadow .3s, transform .3s;
-  }
-
-  .card:hover {
-    box-shadow: 0 8px 40px rgba(0, 255, 136, 0.15);
-    transform: translateY(-4px)
-  }
-
-  .muted {
-    color: var(--muted)
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px
-  }
-
-  .checklist {
-    list-style: none;
-    padding: 0;
-    margin: 14px 0 0
-  }
-
-  .checklist li {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin: 6px 0;
-    color: var(--muted)
-  }
-
-  .checklist i {
-    color: var(--accent)
-  }
-
-  .pill-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px
-  }
-
-  .pill {
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 13px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(255, 255, 255, 0.03)
-  }
-
-  .pill.green {
-    background: rgba(0, 255, 136, 0.14);
-    border-color: rgba(0, 255, 136, 0.25)
-  }
-
-  .pill.cyan {
-    background: rgba(0, 224, 255, 0.10);
-    border-color: rgba(0, 224, 255, 0.22)
-  }
-
-  .pill.gray {
-    background: rgba(255, 255, 255, 0.06)
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px
-  }
-
-  .skills-grid h4 {
-    margin: 10px 0 0;
-    text-align: center
-  }
-
-  .skill-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--glass);
-    border: 1px solid rgba(0, 255, 136, 0.1);
-    border-radius: 14px;
-    padding: 18px
-  }
-
-  .skill-card img {
-    width: 48px;
-    height: 48px
-  }
-
-  .project {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-    transition: transform 300ms, box-shadow 300ms
-  }
-
-  .project img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    transition: transform 450ms ease
-  }
-
-  .project .body {
-    padding: 12px
-  }
-
-  .project h4 {
-    margin: 0 0 6px;
-    font-size: 16px;
-    color: var(--accent)
-  }
-
-  .project p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px
-  }
-
-  .project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 255, 136, 0.1)
-  }
-
-  .project:hover img {
-    transform: scale(1.06)
-  }
-
-  .stack {
-    margin-top: 8px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap
-  }
-
-  .stack span {
+  .hero { margin-bottom: 6rem; }
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: var(--muted)
-  }
-
-  /* Corner ribbon (category) */
-  .ribbon {
-    position: absolute;
-    top: 12px;
-    left: -44px;
-    padding: 8px 60px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    color: #00160c;
-    font-weight: 700;
-    letter-spacing: .04em;
-    font-size: 12px;
-    transform: rotate(-30deg);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    color: var(--faint);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.6rem;
   }
-
-  .contact-card {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto
+  .hero h1 {
+    font-family: 'Jost', sans-serif;
+    font-size: clamp(2.4rem, 7vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 2.2rem;
   }
-
-  .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 10px
-  }
-
-  .contact-item {
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    padding: 10px 14px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 0 0 0 var(--ring)
-  }
-
-  .contact-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 0 8px var(--ring)
-  }
-
-  .contact-item i {
-    color: var(--accent)
-  }
-
-  footer {
-    padding: 36px 0;
+  .hero h1 .dim { color: var(--faint); }
+  .hero-body {
     color: var(--muted);
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.04)
+    font-size: 17px;
+    max-width: 560px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+  .hero-body p { margin-bottom: 1.1rem; }
+  .hero-body p:last-child { margin-bottom: 0; }
+
+  /* DIVIDER */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 5rem 0;
   }
 
-  footer .ps {
-    margin-top: 6px
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--very-faint);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dim);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
 
-  .accent {
-    color: var(--accent)
-  }
-
-  /* Responsive */
-  @media (max-width:1024px) {
-    .skills-grid {
-      grid-template-columns: repeat(2, 1fr)
-    }
-
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr)
-    }
-
-    .about-grid {
-      grid-template-columns: repeat(2, 1fr)
-    }
-  }
-
-  @media (max-width:860px) {
-    .hero-media img {
-      margin-top: 30px;
-      border-radius: 30%;
-    }
-
-
-
-    nav.links {
-      display: none
-    }
-
-    .hamburger {
-      display: block
-    }
-
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .hero-content h1 {
-      font-size: 44px
-    }
-
-    .about-grid {
-      grid-template-columns: repeat(1, 1fr)
-    }
-  }
-
-  @media (max-width:560px) {
-    .hero-content h1 {
-      font-size: 36px
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr
-    }
-
-    .about-grid {
-      grid-template-columns: repeat(1, 1fr)
-    }
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-  }
-
+  /* PROJECTS */
   .project {
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-    transition: transform 300ms, box-shadow 300ms;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0 2rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    align-items: start;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 0 -1rem;
   }
-
-  .project img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+  .project:hover {
+    background-color: var(--surface);
   }
-
-  .flag {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    padding: 6px 12px;
-    font-size: 12px;
-    border-bottom-left-radius: 8px;
-    transition: opacity .3s;
-  }
-
-  .project:hover .flag {
-    opacity: 0;
-  }
-
-  .project-buttons {
-    display: flex;
-    gap: 8px;
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    opacity: 0;
-    transition: opacity .3s;
-  }
-
-  .project-buttons a {
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-  }
-
-  .project:hover .project-buttons {
-    opacity: 1;
-  }
-
-  .project .body {
-    padding: 12px;
-  }
-
-  .project h4 {
-    margin: 0 0 6px;
-    font-size: 16px;
+  .project:last-child { border-bottom: 1px solid var(--border); }
+  .project-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
     color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .project-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    color: var(--dim);
+    line-height: 1.75;
+    margin-bottom: 0.6rem;
+    max-width: 460px;
+    font-weight: 300;
+  }
+  .project-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--faint);
+    line-height: 1.75;
+    max-width: 440px;
+  }
+  .project-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--faint);
+    white-space: nowrap;
+    padding-top: 4px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.9rem; }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--faint);
+    border: 1px solid var(--border-mid);
+    padding: 3px 9px;
+    border-radius: 2px;
   }
 
-  .project p {
-    margin: 0;
+  /* WRITING */
+  .writing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .writing-row:last-child { border-bottom: 1px solid var(--border); }
+  .writing-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
     color: var(--muted);
-    font-size: 14px;
+    font-weight: 300;
+  }
+  .writing-title a { color: var(--muted); }
+  .writing-title a:hover { color: var(--accent); }
+  .writing-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .physics-aside, .projects-more, .books-more {
+    margin-top: 1.5rem;
+    padding: 1.3rem 1.5rem;
+    border-left: 1px solid var(--border-mid);
+    background: var(--surface);
+  }
+  .physics-aside p, .projects-more p, .books-more p {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    color: var(--faint);
+    line-height: 1.85;
+    font-style: italic;
+    font-weight: 300;
   }
 
-  /* Always show buttons on mobile */
-  @media (max-width:860px) {
-    .project-buttons {
-      opacity: 1;
-      position: static;
-      margin-top: 8px;
-    }
+  /* STACK */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+  .stack-item-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
-  @media (max-width:1024px) {
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  /* BOOKS */
+  .book-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border);
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .book-row:last-child { border-bottom: 1px solid var(--border); }
+  .book-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .book-author {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--faint);
   }
 
-  @media (max-width:560px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
+  /* CHESS */
+  .chess-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 1.5rem 0;
+  }
+  .chess-icon {
+    font-size: 3.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0.18;
+  }
+  .chess-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .chess-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    color: var(--dim);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 1.1rem;
+    max-width: 420px;
+  }
+  .chess-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--faint);
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border-mid);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .chess-link:hover { color: var(--muted); border-color: var(--dim); }
+
+  /* CONTACT */
+  .contact-intro {
+    font-family: 'Jost', sans-serif;
+    color: var(--dim);
+    font-size: 16px;
+    margin-bottom: 2.2rem;
+    max-width: 440px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+  .contact-grid { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .contact-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-mid);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .contact-link:hover { color: var(--muted); border-color: var(--dim); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--very-faint);
+    letter-spacing: 0.06em;
+  }
+
+  /* RESPONSIVE */
+  @media (min-width: 1025px) {
+    body { max-width: 1000px; padding: 5rem 3rem 10rem; }
+    .hero { margin-bottom: 7rem; }
+    .section-header { margin-bottom: 3rem; }
+    .project { padding: 2.5rem 1rem; }
+    .stack-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    body { padding: 3rem 2rem 7rem; }
+    nav { margin-bottom: 5rem; }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 3.4rem); }
+    .hero-body { max-width: 500px; }
+    .project-desc { max-width: 400px; }
+    .project-note { max-width: 380px; }
+    .stack-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .chess-desc { max-width: 380px; }
+    .contact-intro { max-width: 400px; }
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 2.5rem 1.4rem 5rem; font-size: 16px; }
+    nav { margin-bottom: 4.5rem; flex-direction: row; justify-content: space-between; }
+    .menu-toggle { display: block; }
+    .nav-links { 
+      display: none; 
+      width: 100%; 
+      flex-direction: column; 
+      gap: 1.2rem; 
+      font-size: 14px; 
+      margin-top: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
     }
+    .nav-links.active { display: flex; }
+    .hero h1 { margin-bottom: 1.8rem; }
+    .hero-body { font-size: 16px; }
+    .project { grid-template-columns: 1fr; gap: 0; padding: 1.5rem 1rem; }
+    .project-year { display: none; }
+    .project-name { font-size: 16px; }
+    .project-desc { font-size: 14px; max-width: 100%; }
+    .project-note { max-width: 100%; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .stack-item-name { font-size: 14px; }
+    .chess-block { flex-direction: column; gap: 1.2rem; }
+    .chess-icon { font-size: 2.4rem; }
+    .writing-title { font-size: 15px; }
+    .book-title { font-size: 15px; }
+    hr { margin: 3.5rem 0; }
+  }
+
+  @media (max-width: 380px) {
+    body { padding: 2rem 1.2rem 4rem; }
+    .stack-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 2rem; }
   }
 </style>
 </head>
-
 <body>
 
-  <!-- NAV -->
-  <header id="site-nav" class="nav">
-    <div class="container nav-inner">
-      <div class="logo">&lt;/decodeaditya&gt</div>
-      <nav class="links" aria-label="Main">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#chess">Chess</a>
-        <a href="#books">Books</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+<nav>
+  <span class="nav-name">Aditya.</span>
+  <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+  <div class="nav-links">
+    <a href="#work">work</a>
+    <a href="#writing">writing</a>
+    <a href="#stack">stack</a>
+    <a href="#reading">reading</a>
+    <a href="#chess">chess</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>I build things<br><span class="dim">&amp; think too much.</span></h1>
+  <div class="hero-body">
+    <p>I'm Aditya, a self-taught developer and writer. I like building products that solve real problems. When I'm not coding, you'll find me lost in a book or playing chess.</p>
+    <p>This is where I share my projects, thoughts, and what I'm learning along the way. If anything here resonates with you, let's connect.</p>
+    <p>I also have a soft spot for physics — I write notes on it the way I wish someone had explained it to me. Not equation-first. Question-first. Still figuring it out myself, so it's a work in progress.</p>
+  </div>
+</div>
+
+<hr>
+
+<section id="work">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">Work</span>
+  </div>
+
+  <div id="projects-container"></div>
+
+  <div class="projects-more">
+    <p>and more too</p>
+  </div>
+</section>
+
+<hr>
+
+<section id="writing">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">Writing</span>
+  </div>
+
+  <div class="writing-row">
+    <span class="writing-title"><a href="https://medium.com/@decodeaditya" target="_blank" rel="noopener">Why most social good apps fail</a></span>
+    <span class="writing-meta">Medium · 2025</span>
+  </div>
+  <div class="writing-row">
+    <span class="writing-title"><a href="https://medium.com/@decodeaditya" target="_blank" rel="noopener">Savarrior — lessons no pitch deck talks about</a></span>
+    <span class="writing-meta">Medium · 2025</span>
+  </div>
+  <div class="writing-row">
+    <span class="writing-title" style="color: var(--faint);">Physics notes — question-first, not textbook-first</span>
+    <span class="writing-meta" style="color: var(--very-faint);">coming</span>
+  </div>
+
+  <div class="physics-aside">
+    <p>I want to write about physics the way I wish someone had explained it to me. Not equation-first. Question-first. Why do things fall? What even is a field? Notes from someone still figuring it out.</p>
+  </div>
+</section>
+
+<hr>
+
+<section id="stack">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">Stack</span>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-item"><div class="stack-item-name">React Native</div><div class="stack-item-type">mobile</div></div>
+    <div class="stack-item"><div class="stack-item-name">React.js</div><div class="stack-item-type">frontend</div></div>
+    <div class="stack-item"><div class="stack-item-name">Django</div><div class="stack-item-type">backend</div></div>
+    <div class="stack-item"><div class="stack-item-name">Flutter</div><div class="stack-item-type">mobile</div></div>
+    <div class="stack-item"><div class="stack-item-name">Python</div><div class="stack-item-type">scripting / ai</div></div>
+    <div class="stack-item"><div class="stack-item-name">JavaScript</div><div class="stack-item-type">language</div></div>
+    <div class="stack-item"><div class="stack-item-name">MERN Stack</div><div class="stack-item-type">full-stack</div></div>
+    <div class="stack-item"><div class="stack-item-name">Firebase</div><div class="stack-item-type">infra</div></div>
+    <div class="stack-item"><div class="stack-item-name">Machine Learning</div><div class="stack-item-type">ai / data</div></div>
+    <div class="stack-item"><div class="stack-item-name">Hive</div><div class="stack-item-type">local db</div></div>
+    <div class="stack-item"><div class="stack-item-name">Full-Stack Dev</div><div class="stack-item-type">end to end</div></div>
+    <div class="stack-item"><div class="stack-item-name">Node.js</div><div class="stack-item-type">runtime</div></div>
+  </div>
+</section>
+
+<hr>
+
+<section id="reading">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">On my shelf</span>
+  </div>
+  <div class="book-row"><span class="book-title">Homo Deus</span><span class="book-author">Yuval Noah Harari</span></div>
+  <div class="book-row"><span class="book-title">Why I Am an Atheist</span><span class="book-author">Bhagat Singh</span></div>
+  <div class="book-row"><span class="book-title">Brief Answers to the Big Questions</span><span class="book-author">Stephen Hawking</span></div>
+  <div class="book-row"><span class="book-title">Rich Dad, Poor Dad</span><span class="book-author">Robert Kiyosaki</span></div>
+  <div class="book-row"><span class="book-title">Deewar Mein Ek Khidki Rehti Thi</span><span class="book-author">Vinod Kumar Shukla</span></div>
+  <div class="book-row"><span class="book-title">I Came Upon a Lighthouse</span><span class="book-author">Shantanu naidu</span></div>
+
+  <div class="books-more">
+    <p>and many more</p>
+  </div>
+</section>
+
+<hr>
+
+<section id="chess">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Chess</span>
+  </div>
+  <div class="chess-block">
+    <div class="chess-icon">♟</div>
+    <div>
+      <div class="chess-title">Always up for a game.</div>
+      <div class="chess-desc">I like chess. Rapid or blitz — doesn't matter. If you want to play, challenge me. I won't say no.</div>
+      <a class="chess-link" href="https://www.chess.com/member/Devcost" target="_blank" rel="noopener">chess.com/member/Devcost →</a>
     </div>
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#chess">Chess</a>
-      <a href="#books">Books</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </header>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <main>
-    <section id="home" class="hero">
-      <canvas id="particle-canvas"></canvas>
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
+<hr>
 
-      <div class="hero-inner container hero-grid">
-        <div class="hero-media reveal">
-          <img src="./images/programmer-14621847-11757512.webp"
-            alt="Developer at desk">
-        </div>
-        <div class="hero-content reveal">
-          <small>hello, i am</small>
-          <h1>Aditya</h1>
-          <p class="lead">I am a tech enthusiast who loves coding and building innovative Projects.</p>
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-title">Contact</span>
+  </div>
+  <p class="contact-intro">If something here made you think — let's talk. Open to collaborating on things that matter, or just a good conversation.</p>
+  <div class="contact-grid">
+    <a class="contact-link" href="mailto:adityaj02810@gmail.com">email</a>
+    <a class="contact-link" href="https://linkedin.com/in/decodeaditya" target="_blank" rel="noopener">linkedin</a>
+    <a class="contact-link" href="https://github.com/decodeaditya" target="_blank" rel="noopener">github</a>
+    <a class="contact-link" href="https://medium.com/@decodeaditya" target="_blank" rel="noopener">medium</a>
+  </div>
+</section>
 
-          <div class="btn-row">
-            <a class="btn" href="#projects"><i data-lucide="folder"></i> Projects</a>
-            <a class="btn alt" href="#contact"><i data-lucide="mail"></i> Contact</a>
-          </div>
+<footer>
+  <p>built by Aditya. · <span id="current-year"></span></p>
+</footer>
 
-          <div class="hero-chips">
-            <span class="chip"><i data-lucide="zap"></i>Spark</span>
-            <span class="chip"><i data-lucide="sparkles"></i> Tech </span>
-            <span class="chip"><i data-lucide="accessibility"></i> Impact </span>
-          </div>
-        </div>
+<script>
+  // Mobile Menu Toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 
-      </div>
-    </section>
+  // Dynamic Year
+  document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <div class="section-title">
-          <h2>About Me</h2>
-          <p class="muted">Who I am, what I build and what I love.</p>
-        </div>
-
-        <div class="about-grid">
-          <div class="card reveal">
-            <h3>Who am I?</h3>
-            <p class="muted">I’m Aditya — I felt a spark writing my first line of code. I like to solve real-world
-              problems with technology, always learning new tools Whether a New Programming Language, AI or Robotics
-              when a challenge calls for it — not for a job or portfolio, because I believe no problem is too big with
-              the right tech.</p>
-            <div class="pill-row">
-              <span class="pill green"><i data-lucide="cpu"></i> Problem Solving</span>
-              <span class="pill cyan"><i data-lucide="layers"></i> Exploration</span>
-              <span class="pill gray"><i data-lucide="sparkles"></i> Tech for Good</span>
-            </div>
-          </div>
-
-          <div class="card reveal">
-            <h3>Little More!</h3>
-            <ul class="checklist">
-              <li><i data-lucide="check-circle"></i> From India </li>
-              <li><i data-lucide="check-circle"></i> Nature and books are my escape</li>
-              <li><i data-lucide="check-circle"></i> I am still trying to find my path</li>
-              <li><i data-lucide="check-circle"></i> Eager to Play Chess with you</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS (with logos) -->
-    <section id="skills">
-      <div class="container">
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p class="muted">Tools & technologies I use</p>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-            <h4>HTML5</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-            <h4>CSS3</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              alt="JavaScript">
-            <h4>JavaScript</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-            <h4>React JS</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native">
-            <h4>React Native</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
-            <h4>Flutter</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-            <h4>Python</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
-            <h4>Django</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kalilinux/kalilinux-original.svg"
-              alt="Kali Linux">
-            <h4>Kali Linux</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-            <h4>Node.js</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecolab/googlecolab-plain.svg"
-              alt="Google Colab">
-            <h4>Google Colab</h4>
-          </div>
-          <div class="skill-card reveal">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
-            <h4>Firebase</h4>
-          </div>
-        </div>
-        <p style="text-align: center;padding-top: 10px;">And <strong>MORE!</strong></p>
-      </div>
-    </section>
-
-    <!-- PROJECTS (with corner ribbons) -->
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="container">
-        <div class="section-title">
-          <h2>Projects</h2>
-          <p>Some of my work</p>
-        </div>
-        <div class="projects-grid">
-
-
-
-        </div>
-        <p style="text-align: center;padding-top: 10px;">And <strong> I am still working on more projects ... </strong>
-        </p>
-      </div>
-    </section>
-
-    <style>
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-
-      .project {
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-      }
-
-      .project img {
-        width: 100%;
-        height: max-content;
-        object-fit: cover;
-      }
-
-      .flag {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: var(--accent);
-        color: #000;
-        font-weight: 700;
-        padding: 6px 12px;
-        font-size: 12px;
-        border-bottom-left-radius: 8px;
-        transition: opacity .3s;
-        z-index: 2;
-      }
-
-      .project:hover .flag {
-        opacity: 0;
-      }
-
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        padding: 8px 12px;
-        padding-top: 20px;
-      }
-
-      .chips span {
-        background: rgba(255, 255, 255, 0.15);
-        color: var(--accent);
-        padding: 3px 8px;
-        border-radius: 12px;
-        font-size: 11px;
-      }
-
-      .hover-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(6px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity .3s;
-      }
-
-      .project:hover .hover-overlay {
-        opacity: 1;
-      }
-
-      .project-buttons {
-        position: relative;
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .project-buttons a {
-        padding: 8px 14px;
-        border-radius: 20px;
-        font-size: 14px;
-        background: var(--accent);
-        color: #000;
-        font-weight: 700;
-      }
-
-      .mobile-buttons {
-        display: none;
-        padding-top: 12px;
-      }
-
-      .mobile-buttons a {
-        display: inline-block;
-        padding: 10px;
-        margin-right: 8px;
-        border-radius: 30px;
-        background: var(--accent);
-        color: #000;
-        font-weight: 700;
-        font-size: 14px;
-        width: 48%;
-        text-align: center;
-      }
-
-      /* Mobile adjustments */
-      @media (max-width:860px) {
-        .hover-overlay {
-          display: none;
-        }
-
-        .mobile-buttons {
-          display: flex;
-          gap: 4%;
-          justify-content: center;
-        }
-
-        .flag {
-          opacity: 1 !important;
-        }
-      }
-
-      @media (max-width:1024px) {
-        .projects-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width:560px) {
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-
-
-    <!-- CHESS -->
-    <section id="chess">
-      <div class="container">
-        <div class="section-title">
-          <h2>Chess</h2>
-          <p class="muted">I like chess.</p>
-        </div>
-        <div class="card reveal" style="max-width:720px;margin:0 auto;text-align:center">
-          <p class="muted" style="margin:0.5rem 0 0.2rem"><i data-lucide="chess-king"></i> Always up for a casual
-            rapid/blitz game.</p>
-          <p style="margin-top:8px"><a class="pill green" href="https://www.chess.com/member/Devcost" target="_blank"
-              rel="noreferrer"><i data-lucide="swords"></i> Challenge me on Chess.com</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOOKS -->
-    <section id="books">
-      <div class="container">
-        <div class="section-title">
-          <h2>Favorite Books</h2>
-          <p class="muted">Just titles with links — keeping it simple.</p>
-        </div>
-        <div class="card reveal" style="max-width:720px;margin:0 auto">
-          <ul class="checklist" style="margin:0">
-            <li><i data-lucide="book-open"></i> <a class="link-accent" href="https://www.google.com/search?q=Homo+Dues"
-                target="_blank" rel="noreferrer">Homo Dues</a></li>
-            <li><i data-lucide="book-open"></i> <a class="link-accent"
-                href="https://www.google.com/search?q=Why+I+am+an+Atheist" target="_blank" rel="noreferrer">Why I am
-                an Atheist</a></li>
-            <li><i data-lucide="book-open"></i> <a class="link-accent"
-                href="https://www.google.com/search?q=I+came+upon+a+Lighthouse" target="_blank" rel="noreferrer">I came
-                upon a Lighthouse</a></li>
-            <li><i data-lucide="book-open"></i> <a class="link-accent"
-                href="https://www.google.com/search?q=Rich+Dad,+Poor+Dad" target="_blank" rel="noreferrer">Rich
-                Dad, Poor Dad</a></li>
-            <li><i data-lucide="book-open"></i> <a class="link-accent"
-                href="https://www.google.com/search?q=Brief+Answers+to+the+Big+Questions" target="_blank"
-                rel="noreferrer"> Brief Answers to the Big Questions</a></li>
-            <li><i data-lucide="book-open"></i> <a class="link-accent"
-                href="https://www.google.com/search?q=Deewar+Mein+ek+Khidki+rehti+thi" target="_blank" rel="noreferrer">
-                Deewar Mein ek Khidki rehti thi</a></li>
-
-            <p>and many more...</p>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p class="muted">Let's connect for collaboration opportunities.</p>
-        </div>
-
-        <div class="contact-card reveal">
-          <div class="contact-row">
-
-            <a class="contact-item" href="https://github.com/decodeaditya" target="_blank" rel="noreferrer"><i
-                data-lucide="github"></i> GitHub</a>
-            <a class="contact-item" href="https://www.linkedin.com/in/decodeaditya" target="_blank" rel="noreferrer"><i
-                data-lucide="linkedin"></i> LinkedIn</a>
-            <a class="contact-item" href="https://instagram.com/decodeaditya" target="_blank" rel="noreferrer"><i
-                data-lucide="instagram"></i> Instagram</a>
-          </div>
-
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-
-
-  <script>
-
-    // Define an array of project objects
-    const projects = [
-      {
-        title: "BeatBox Music App",
-        description: "Dive into music with this sleek, dark-themed Flutter Android app, featuring playback controls, favorites, and more.",
-        image: "./images/beatbox.png", // Replace with your image URL
-        category: "Mobile App",
-        stack: ["Flutter", "Dart", "Open Source"],
-        liveUrl: "https://beatboxplayer.netlify.app/", // Replace with a live demo URL
-        githubUrl: "https://github.com/decodeaditya/BeatBox-music-player" // Replace with your GitHub repo URL
-      },
-      {
-        title: "Savarrior for Animals",
-        description: "Report animal cruelty, connect with vets and NGOs, and access a comprehensive vegan lifestyle library with Savarrior.",
-        image: "./images/savarrior.png",
-        category: "Mobile App",
-        stack: ["React Native", "MongoDB", "Firebase"],
-        liveUrl: "https://savarrior.netlify.app/",
-        githubUrl: "https://github.com/decodeaditya/Savarrior_Web_Version"
-      },
-      {
-        title: "Save A Stray (NGO)",
-        description: "This Website was made for Save A Stray, a NGO in India. It allows users to donate, adopt pets, and more.",
-        image: "./images/saveastray.png",
-        category: "Website",
-        stack: ["React", "Firebase", "cpanel"],
-        liveUrl: "https://www.saveastray.in/",
-        githubUrl: "#"
-      },
-      {
-        title: "Robin Singh's Landing Page",
-        description: "This is a personal landing page for Animal activist Robin Singh's new Book Launch 'Happiness Happens!' ",
-        image: "./images/locaterobin.png",
-        category: "Landing Page",
-        stack: ["Vite", "Tailwind CSS"],
-        liveUrl: "https://locaterobin.netlify.app/",
-        githubUrl: "https://github.com/decodeaditya/locaterobin-book-order-page"
-      },
-      {
-        title: "Motion Detector",
-        description: "This project uses the OpenCV library (cv2) to detect motion. When motion is detected, it triggers an alert.",
-        image: "./images/motiondetector.svg",
-        category: "Computer Vision",
-        stack: ["Python", "CV2"],
-        liveUrl: "#",
-        githubUrl: "https://github.com/decodeaditya/Burgler-alarm"
-      },
-      {
-        title: "Linkon Chat WebApp",
-        description: "Linkon is a Browser based Chat Application. It allows users to chat with each other in real time. ",
-        image: "./images/linkon.png",
-        category: "Web App",
-        stack: ["React", "Firebase", 'Material ui'],
-        liveUrl: "https://linkonchat.netlify.app/",
-        githubUrl: "https://github.com/decodeaditya/Linkon"
-      }
-      ,
-      {
-        title: "Web Invoice Generator",
-        description: "This is a Browser based Invoice Manager. It helps users to manage their invoices efficiently.",
-        image: "./images/invoicegenerator.svg",
-        category: "Web App",
-        stack: ["MERN Stack", 'Material UI'],
-        liveUrl: "https://devcost---invoice.web.app/",
-        githubUrl: "https://github.com/decodeaditya/Devcost_Invoice_Generator"
-      }
-      ,
-    ];
-
-    const projectsGrid = document.querySelector('.projects-grid');
-
-    projects.forEach(project => {
-      const projectElement = document.createElement('div');
-      projectElement.classList.add('project', 'reveal');
-
-      // This is a template for the project card's HTML
-      projectElement.innerHTML = `
-        <div class="flag">${project.category}</div>
-        <img src="${project.image}" alt="${project.title}">
-        <div class="chips">
-          ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
-        </div>
-        <div class="hover-overlay">
-          <div class="project-buttons">
-            <a href="${project.liveUrl}" target="_blank">Live</a>
-            <a href="${project.githubUrl}" target="_blank">GitHub</a>
-          </div>
-        </div>
-        <div class="body">
-          <h4>${project.title}</h4>
-          <p>${project.description}</p>
-          <div class="mobile-buttons">
-            <a href="${project.liveUrl}" target="_blank">Live</a>
-            <a href="${project.githubUrl}" target="_blank">GitHub</a>
-          </div>
-        </div>
-    `;
-
-      projectsGrid.appendChild(projectElement);
-    });
-
-
-    // Activate Lucide icons
-    lucide.createIcons();
-
-    // Mobile menu toggle
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobileMenu");
-    hamburger.addEventListener("click", () => mobileMenu.classList.toggle("show"));
-
-    // Navbar background on scroll + active link color
-    const nav = document.getElementById('site-nav');
-    function onScroll() {
-      const y = window.scrollY;
-      if (y > 24) nav.classList.add('bg'); else nav.classList.remove('bg');
-
-      const sections = ['about', 'skills', 'projects', 'chess', 'books', 'contact'];
-      const mid = window.innerHeight / 2;
-      sections.forEach(id => {
-        const sec = document.getElementById(id);
-        const a = document.querySelector('nav.links a[href="#' + id + '"]');
-        if (!sec || !a) return;
-        const rect = sec.getBoundingClientRect();
-        a.style.color = (rect.top <= mid && rect.bottom >= mid) ? 'var(--accent)' : '';
-      });
+  // Projects Array
+  const projects = [
+    {
+      name: "The Savarrior",
+      url: "https://www.savarrior.com",
+      desc: "Rescue app for India's street animals. Real-time alerts to nearby NGOs and vets. Built solo.",
+      note: "Hit a wall no code could fix — ground infrastructure wasn't there. Pivoted from product to community. Still running.",
+      tags: ["React Native", "Django", "geolocation"],
+      year: "2024 —"
+    },
+    {
+      name: "Dioptr",
+      url: "https://dioptr.vercel.app",
+      desc: "Study tool. Pomodoro tied to daily targets, formula vault, lo-fi audio. Built for my own Organic Chemistry disaster.",
+      note: "Mine first. Shared it after. No login.",
+      tags: ["React", "Firebase", "focus tool"],
+      year: "2025"
+    },
+    {
+      name: "Kapany",
+      url: "https://github.com/decodeaditya/kapany",
+      desc: "Code converter between languages — Pug to React and other pairs. Named after Narinder Singh Kapany.",
+      note: "Built to save myself hours of manual refactoring.",
+      tags: ["Python", "JavaScript", "CLI"],
+      year: "2025"
+    },
+    {
+      name: "Beatbox",
+      url: "https://beatboxplayer.netlify.app",
+      desc: "Music app built because I hated ads. Worked until the API got blocked for DRM violations.",
+      note: "Open-sourced. Still runs if you self-host.",
+      tags: ["Flutter", "Hive"],
+      year: "2025"
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  ];
 
-    // Reveal on scroll (uses .reveal.visible)
-    (function () {
-      const reveals = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach(r => io.observe(r));
-    })();
+  // Render Projects
+  const projectsContainer = document.getElementById('projects-container');
+  projectsContainer.innerHTML = projects.map(p => `
+    <div class="project" onclick="window.open('${p.url}', '_blank')">
+      <div>
+        <div class="project-name">${p.name}</div>
+        <div class="project-desc">${p.desc}</div>
+        <div class="project-note">${p.note}</div>
+        <div class="tags">
+          ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+        </div>
+      </div>
+      <div class="project-year">${p.year}</div>
+    </div>
+  `).join('');
+</script>
 
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Simple particle canvas (small dots)
-    (function () {
-      const canvas = document.getElementById('particle-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let w = canvas.width = innerWidth;
-      let h = canvas.height = innerHeight;
-      const particles = [];
-      const count = Math.max(25, Math.floor((w * h) / 90000));
-      function rand(min, max) { return Math.random() * (max - min) + min; }
-
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: rand(0, w),
-          y: rand(0, h),
-          r: rand(0.6, 2.2),
-          vx: rand(-0.2, 0.2),
-          vy: rand(-0.15, 0.15),
-          alpha: rand(0.06, 0.18)
-        });
-      }
-
-      function resize() {
-        w = canvas.width = innerWidth;
-        h = canvas.height = innerHeight;
-      }
-      window.addEventListener('resize', resize);
-
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        for (const p of particles) {
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.x < -20) p.x = w + 20;
-          if (p.x > w + 20) p.x = -20;
-          if (p.y < -20) p.y = h + 20;
-          if (p.y > h + 20) p.y = -20;
-          ctx.beginPath();
-          ctx.fillStyle = 'rgba(255,255,255,' + p.alpha + ')';
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-  </script>
 </body>
-
 </html>
